@@ -58,6 +58,10 @@ fileprivate struct SearchBar<ResultContent: View>: UIViewControllerRepresentable
         }
     }
     
+    static func dismantleUIViewController(_ controller: SearchBarWrapperController, coordinator: Coordinator) {
+        controller.searchController = nil
+    }
+    
     func makeCoordinator() -> Coordinator {
         return Coordinator(text: $text, placeholder: placeholder, hidesNavigationBarDuringPresentation: hidesNavigationBarDuringPresentation, resultContent: resultContent)
     }
